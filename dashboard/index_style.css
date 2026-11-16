@@ -1,0 +1,890 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color:#0A0A0A;
+    display: flex;
+    /* min-height: 100vh; */
+}
+
+.sidebar {
+    width: 292px;
+    flex: 0 0 292px;
+    border-right: 1px solid #605E5E;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;            /* Set exact viewport height */
+    position: sticky;         /* Keeps it locked in place */
+    top: 0;                   /* Sticks to the top of the screen */
+    overflow-y: auto;         /* Allows the sidebar to scroll internally if its content is too long */
+    font-family: "Sora", sans-serif;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #605E5E;
+    padding: 4px 8px 22px;
+    margin-bottom: 20px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 23px;
+    letter-spacing: -0.7px;
+    color: #F0F2F0;
+}
+
+.sidebar-toggle,
+.mobile-menu {
+    border: 0;
+    background: transparent;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #605E5E;
+}
+
+.sidebar-toggle i:hover {
+    color: #145CE3;
+}
+
+.nav-group-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #605E5E;
+    margin: 0 8px 12px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #F0F2F0;
+    text-decoration: none;
+    font-weight: 550;
+    padding: 11px 8px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-item i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #145CE3;
+}
+
+.nav-item.actives {
+    margin-bottom: 25px;
+}
+
+.nav-item.active {
+    margin-bottom: 25px;
+}
+
+.nav-item.active i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item.margin {
+    margin-bottom: 24px;
+}
+
+.nav-item.logout {
+    margin-top: auto;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+    flex: 0 0 80px;
+    padding: 22px 10px;
+}
+
+/* Hide brand name, category titles, and text labels */
+.sidebar.collapsed .brand,
+.sidebar.collapsed .nav-group-title,
+.sidebar.collapsed .nav-item span {
+    display: none;
+}
+
+/* Center icons and adjust layout when collapsed */
+.sidebar.collapsed .brand-row {
+    justify-content: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 12px 0;
+    gap: 0;
+}
+
+.sidebar.collapsed .nav-item.active {
+    margin-bottom: 15px;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 32px;
+}
+
+/* .topbar {
+    height: 78px;
+    border-bottom: 1px solid #605E5E;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 -24px 16px;
+    padding: 0 24px;
+} */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keeps the topbar above all other page content */
+    background-color: #0A0A0A; /* Change this to match your exact dashboard background color */
+    
+    height: 78px;
+    border-bottom: 1px solid #605E5E;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Keeps your export & profile buttons on the right */
+    margin: 0 -24px 16px;
+    padding: 0 24px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: auto; /* Pushes this element all the way to the right */
+}
+
+/* Base Button Style */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 8px 24px;
+    font-family: "Sora", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+/* Export Button Style */
+.export-button {
+    background-color: #145CE3;
+    color: #F0F2F0;
+}
+
+.export-button:hover {
+    background-color: #104BC0;
+}
+
+.export-button:active {
+    background-color: #0C3B9A;
+}
+
+.buttons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-family: "Sora", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.notif-button {
+    background-color: #145CE3;
+    color: #F0F2F0;
+}
+
+.notif-button:hover {
+    background-color: #104BC0;
+}
+
+.notif-button:active {
+    background-color: #0C3B9A;
+}
+
+/* Icon styling inside the button */
+.button i {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.profile:hover {
+    box-shadow: 0 0 0 5px #145CE3; 
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the image smoothly to fit the box */
+    display: block;
+}
+
+.welcome-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin: 10px 0 28px;
+}
+
+.welcome-row h1 {
+    font-size: 70px;
+    letter-spacing: -1px;
+    margin: 0 0 1px;
+    font-weight: bold;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.welcome-row p {
+    margin: 0;
+    color: #D9D9D9;
+    font-size: 25px;
+    font-weight: normal;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.welcome-row .primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Adds space between the icon and text */
+    padding: 12px 30px;
+    color: #F0F2F0;
+    background-color: #145CE3;
+    font-weight: 600;
+    font-family: "Sora", sans-serif;
+    border: none;
+    border-radius: 12px; /* Matches your other button styles */
+    cursor: pointer;
+}
+
+.primary a{
+    text-decoration: none;
+    color: #F0F2F0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.welcome-row .primary i {
+    font-size: 20px; /* Adjust icon size if needed */
+    font-weight: 500; /* Removed the invalid 'px' */
+}
+
+.welcome-row .primary:hover {
+    background-color: #104BC0;
+}
+
+.welcome-row .primary:active {
+    background-color: #0C3B9A;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+.stat-card,
+.panel {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--panel);
+}
+
+.stat-card {
+    padding: 25px;
+    min-height: 300px;
+    border: 1px solid  #605E5E ;
+}
+
+.stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat-top .blue-icon, .green-icon, .red-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: #2A2A2A;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+}
+
+.stat-top .blue-icon {
+    color: #145CE3;
+}
+
+.stat-top .green-icon {
+    color: #54C750;
+}
+
+.stat-top .red-icon {
+    color: #7E2C2F;
+}
+
+.stat-top a{
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: transparent;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    text-decoration: none;
+    transform: rotate(90deg);
+}
+
+.stat-menu .blue-menu {
+    color: #145CE3;
+}
+
+.stat-menu .blue-menu:hover {
+    color: #104BC0;
+}
+
+.stat-menu .blue-menu:active {
+    color: #0C3B9A;
+}
+
+.stat-menu .green-menu {
+    color: #54C750;
+}
+
+.stat-menu .green-menu:hover {
+    color: #43B33F;
+}
+
+.stat-menu .green-menu:active {
+    color: #389634;
+}
+
+.stat-menu .red-menu {
+    color: #7E2C2F;
+}
+
+.stat-menu .red-menu:hover {
+    color: #672326;
+}
+
+.stat-menu .red-menu:active {
+    color: #541C1F;
+}
+
+.stat-number {
+    font-size: 100px;
+    font-weight: 600;
+    margin: 32px 0 12px;
+    letter-spacing: -3px;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.stat-card h3 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 400;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 22px;
+    margin-bottom: 24px;
+    align-items: stretch;
+}
+
+/* 1. DAILY ATTENDANCE CHART CONTAINER */
+.chart-card {
+    border: 1px solid #605E5E;
+    border-radius: 22px;
+    padding: 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chart-title {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #F0F2F0;
+    font-family: "Sora", sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Styled Dropdown / Pill Button */
+/* .dropdown-select {
+    background-color: #151922;
+    border: 1px solid #282f42;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+} */
+
+.chart-body {
+    display: flex;
+    flex: 1; /* Automatically takes up the remaining vertical space */
+    min-height: 200px;
+    position: relative;
+    padding: 10px 0 10px 0;
+}
+
+/* Y-Axis Percentages */
+.chart-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #F0F2F0;
+    padding-right: 14px;
+    text-align: right;
+    height: 270px;
+    font-weight: normal;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    margin-top: -5px;
+}
+
+/* Center each number exactly on its horizontal grid line */
+.chart-axis span {
+    transform: translateY(50%);
+}
+
+/* Bar Graph Container & Grid Lines */
+.bars-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 250px;
+    position: relative;
+    margin-top: 13px;
+    /* Horizontal grid lines matching the image background */
+    background-image: 
+        linear-gradient(to bottom, #605E5E 1px, transparent 1px);
+    background-size: 100% 25%;
+}
+
+.bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+    width: 100%;
+}
+
+/* Individual Blue Bars */
+.bar {
+    width: 90px;                         /* Changed from 100px so multiple bars fit side-by-side */
+    height: var(--bar-height);           /* Added back so the dynamic height variable works properly */
+    background-color: #145CE3;
+    border-radius: 15px 15px 0px 0px;
+    transition: height 0.3s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.bar-label {
+    position: absolute;
+    bottom: -38px;
+    font-size: 16px;
+    color: #F0F2F0;
+    font-weight: 500;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Custom Tooltip Styling */
+.chart-tooltip {
+    position: absolute;
+    /* Uses CSS calculation based on the bar height variable */
+    bottom: calc(var(--bar-height) + 15px);
+    background-color: #0A0A0A;
+    color: #F0F2F0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform: translateY(4px);
+    pointer-events: none;
+}
+
+.tooltip-title {
+    font-weight: 700;
+    color: #F0F2F0;
+    font-family: "Sora", sans-serif;
+}
+
+.tooltip-body {
+    color: #D9D9D9;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.bar-col:hover .chart-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.bar:hover {
+    background-color: #3b82f6;
+}
+
+.right-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Card Container Styling */
+.small-metric-card {
+    border: 1px solid #605E5E;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    flex: 1;
+}
+
+/* Top Row: Icon on left, Menu dots on right */
+.stat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.stat-top .green-check {
+    color: #54C750;
+}
+
+.stat-top .blue-file {
+    color: #145CE3;
+}
+
+/* Rounded Box for the Icon */
+.card-icon {
+    width: 40px;
+    height: 40px;
+    background-color:#2A2A2A;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 550px;
+    font-size: 23px;
+}
+
+/* Menu Dots Link */
+.stat-menus {
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.stat-menus .blue-menus {
+    color: #145CE3;
+}
+
+.stat-menus .blue-menus:hover {
+    color: #104BC0;
+}
+
+.stat-menus .blue-menus:active {
+    color: #0C3B9A;
+}
+
+.stat-menus .green-menus {
+    color: #54C750;
+}
+
+.stat-menus .green-menus:hover {
+    color: #43B33F;
+}
+
+.stat-menus .green-mensu:active {
+    color: #389634;
+}
+
+.metric-value {
+    font-size: 70px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 4px;
+    font-family: "Sora", sans-serif;
+}
+
+.metric-label {
+    font-size: 18px;
+    color: #F0F2F0;
+    font-weight: 500;
+    font-family: "Sora", sans-serif;
+}
+
+/* Employees Panel Card Container */
+/* .panel.employees-panel {
+    background-color: #0e1015;
+    border: 1px solid #1c1f2a;
+    border-radius: 16px;
+    padding: 24px 28px;
+    grid-template-columns: 3fr 1fr;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+} */
+
+.panel.employees-panel {
+    border: 1px solid #605E5E;
+    border-radius: 20px;
+    padding: 24px 28px;
+    grid-column: 1 / -1; /* Forces the panel to span the full width of the grid */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Panel Heading / Top Bar */
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.panel-heading h2 {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #ffffff;
+    margin: 0;
+    font-family: "Sora", sans-serif;
+}
+
+/* Action Buttons Container */
+.employee-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Base Button Styling */
+.button {
+    font-family: "Sora", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Adds neat spacing between the icon and the text */
+    text-decoration: none;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Primary Button Styling */
+.button.primary {
+    background-color: #145CE3;
+    color: #F0F2F0;
+    border: none;
+}
+
+.button.primary:hover {
+    background-color: #104BC0;
+}
+
+.button.primary:active {
+    background-color: #0C3B9A;
+}
+
+/* Icon specific styling inside the primary button */
+.button.primary i {
+    font-size: 25px;
+    line-height: 1;
+}
+
+/* Outline "See All" Button */
+.button.outline {
+    color: #F0F2F0;
+    border: 1px solid #605E5E;
+}
+
+.button.outline:hover {
+    border:1px solid #145CE3;
+    color: #145CE3;
+}
+
+/* Table Scroll Wrapper */
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Table Layout */
+.employees-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Table Header Styling */
+.employees-panel th {
+    background-color: #2A2A2A;
+    color: #F0F2F0;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Sora", sans-serif;
+    padding: 16px 18px;
+    letter-spacing: 0.3px;
+}
+
+.employees-panel th:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.employees-panel th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Ensure data cells have no top borders */
+.employees-panel td {
+    padding: 16px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #F0F2F0;
+    border-top: none;
+    border-bottom: 1px solid #2A2A2A; /* Keeps only the line between rows */
+}
+
+/* Status Badges */
+.status {
+    display: inline-block;
+    padding: 8px 16px; /* Fixed the comma to a space */
+    font-weight: 600;
+    font-size: 13px; /* Adjusted slightly smaller for a clean dashboard look */
+    border-radius: 8px; /* Rounds the corners to give it a button/pill look */
+    text-align: center;
+}
+
+/* Active status styling */
+.active-status {
+    background-color: #43B33F;
+    border: 1px solid #54C750;
+    color: #F0F2F0;
+}
+
+/* Optional: Add one for leave-status so it matches */
+.leave-status {
+    background-color: #672326;
+    border: 1px solid #7E2C2F;
+    color: #F0F2F0;
+}
+
+@keyframes growUp {
+    0% {
+        height: 0%;
+        opacity: 0;
+    }
+    100% {
+        height: var(--bar-height);
+        opacity: 1;
+    }
+}
+
+.bar {
+    /* Set your initial height to 0 so it starts from the bottom */
+    height: 0%; 
+    /* Apply the animation: 0.8 seconds duration, smooth easing, forwards keeps it at final height */
+    animation: growUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

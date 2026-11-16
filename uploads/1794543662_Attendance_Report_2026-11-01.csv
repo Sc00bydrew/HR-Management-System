@@ -1,0 +1,5 @@
+Date,"Employee ID","First Name","Last Name",Position,"Time In","Time Out",Status
+2026-10-29,EMP-007,"Alex Andrew",Vital,Developer,05:35:44,11:48:45,Present
+2026-10-29,EMP-011,Peter,Parker,Marketing,05:36:43,11:48:49,Present
+2026-10-28,EMP-007,"Alex Andrew",Vital,Developer,06:37:43,--:--,Present
+2026-10-27,EMP-007,"Alex Andrew",Vital,Developer,06:05:34,06:05:42,Present

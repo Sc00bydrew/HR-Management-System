@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #0A0A0A;
+}
+
+/* Header & Container Layout */
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+
+/* Logo Styling ("LOREM IPSUM") */
+.nav > a {
+    color: #F0F2F0;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    font-family: "Sora", sans-serif;
+}
+
+/* Menu List Layout */
+.nav_list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Default style for all navigation links (Inactive items are grey) */
+.nav_list li a {
+    color: #605E5E; /* Muted slate grey */
+    font-size: 18px;
+    font-weight: 400; /* Regular weight */
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+    font-family: "Sora", sans-serif;
+}
+
+/* Hover effect */
+.nav_list li a:hover {
+    color: #F0F2F0;
+}
+
+/* Active page style (White and bold, matching your photo) */
+.nav_list li a.active {
+    color: #F0F2F0;
+    font-weight: 600; 
+}
+
+.login-container {
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    margin-top: 7rem;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.login-header p {
+    color: #D9D9D9;
+    font-size: 20px;
+    margin-top: 0rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Form Styles */
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.input-group {
+    position: relative;
+    width: 400px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #121212;
+    border: 1px solid #605E5E;
+    border-radius: 10px;
+    color: #F0F2F0;
+    font-size: 15px;
+    outline: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    transition: border-color 0.2s;
+}
+
+/* Red border styling for error inputs */
+.input-group input.input-error {
+    border-color: #ef4444 !important; /* Vibrant red */
+}
+
+/* Keeps the red border glowing even when focused */
+.input-group input.input-error:focus {
+    border-color: #ef4444 !important;
+}
+
+.input-group input::placeholder {
+    color: #605E5E;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.input-group input:focus {
+    border-color: #145CE3;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #605E5E;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.eye-icon:hover {
+    color: #F0F2F0;
+}
+
+/* Form Options Layout */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    width: 400px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #F0F2F0; /* Match the clean white look */
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #121212; /* Matches your input field background */
+    border: 1px solid #605E5E;  /* Matches your input border */
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;        /* Now this will actually work! */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    transition: all 0.2s;
+}
+
+/* Style when the checkbox is checked */
+.remember-me input[type="checkbox"]:checked {
+    background-color: #145CE3;
+    border-color: #145CE3;
+}
+
+/* Adds the white checkmark icon inside when checked */
+.remember-me input[type="checkbox"]:checked::after {
+    content: "";
+    width: 4px;
+    height: 9px;
+    border: solid #F0F2F0;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px; /* Centers the checkmark visually */
+}
+
+.forgot-password {
+    color: #F0F2F0;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Password Input Icon Positioning */
+.input-group.password-group {
+    position: relative;
+}
+
+.input-group.password-group input {
+    padding-right: 45px; /* Adds space so typing doesn't run under the eye icon */
+}
+
+/* Fixes the bright autofill background color */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover, 
+.input-group input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #121212 inset !important; /* Forces your dark background */
+    -webkit-text-fill-color: #F0F2F0 !important;                  /* Keeps your text color clean */
+    border: 1px solid #605E5E !important;                         /* Maintains your input border */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #605E5E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle.active {
+    color: #F0F2F0; /* Brightens the eye icon when password is shown */
+}
+
+/* Login Button */
+.login-btn {
+    width: 400px;
+    padding: 16px 20px;
+    background-color: #145CE3;
+    color: #F0F2F0;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: "Sora", sans-serif;
+}
+
+.login-btn:hover {
+    background-color: #104BC0;
+}
+
+.login-btn:active {
+    background-color: #0C3B9A;
+}
+
+/* Footer */
+.signup-footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 16px;
+    color: #F0F2F0;
+    margin-bottom: 40px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.signup-footer a {
+    color: #145CE3;
+    text-decoration: none;
+    font-weight: bol;
+    font-family: "Sora", sans-serif;
+}
+
+.signup-footer a:hover {
+    text-decoration: underline;
+}

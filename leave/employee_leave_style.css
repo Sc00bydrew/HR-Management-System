@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #0A0A0A;
+}
+
+/* Header & Container Layout */
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+
+/* Logo Styling ("LOREM IPSUM") */
+.nav > a {
+    color: #F0F2F0;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    font-family: "Sora", sans-serif;
+}
+
+/* Menu List Layout */
+.nav_list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Default style for all navigation links (Inactive items are grey) */
+.nav_list li a {
+    color: #605E5E; /* Muted slate grey */
+    font-size: 18px;
+    font-weight: 400; /* Regular weight */
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+    font-family: "Sora", sans-serif;
+}
+
+/* Hover effect */
+.nav_list li a:hover {
+    color: #F0F2F0;
+}
+
+/* Active page style (White and bold, matching your photo) */
+.nav_list li a.active {
+    color: #F0F2F0;
+    font-weight: 600; 
+}
+
+.leave-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.leave-header {
+    text-align: center;
+}
+
+.leave-header h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.leave-header p {
+    color: #D9D9D9;
+    font-size: 20px;
+    margin-top: 0rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.leave-card {
+    background-color: transparent;
+    border: 2px solid #605E5E;
+    border-radius: 20px;
+    padding: 24px;
+    width: 100%;
+    max-width: 720px;
+    color: #F0F2F0;
+    margin: 15px auto;
+}
+
+/* Header Styles */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    font-family: "Sora", sans-serif;
+    margin-left: -3px;
+}
+
+.card-header i {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.alert {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 16px auto;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.alert-danger {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid #ef4444;
+    color: #f87171;
+}
+
+.alert-success {
+    background-color: rgba(56, 150, 52, 0.15);
+    border: 1px solid #389634;
+    color: #54C750;
+}
+
+.alert {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.alert.fade-out {
+    opacity: 0;
+}
+
+/* Form Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* Make the position field span across both columns */
+.form-grid .full-width {
+    grid-column: span 3; 
+}
+
+/* Ensure the input inside it stretches fully */
+.form-grid .full-width input {
+    width: 100%;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #F0F2F0;
+    font-family: "Sora", sans-serif;
+}
+
+/* Form Inputs and Select Styling */
+.leave-card input[type="date"],
+.leave-card input[type="text"],
+.leave-card textarea {
+    background-color: #121212;
+    border: 1px solid #605E5E;
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: #F0F2F0;
+    font-size: 16px;
+    width: 100%;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s ease;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.leave-card input[type="date"]:focus,
+.leave-card select:focus,
+.leave-card input[type="text"]:focus,
+.leave-card textarea:focus {
+    border-color: #22c55e;
+}
+
+.leave-card select {
+    background-color: #121212;
+    border: 1px solid #605E5E;
+    border-radius: 10px;
+    padding: 17px 20px;
+    color: #F0F2F0;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 25px;
+    padding-right: 40px;
+    transition: border-color 0.2s ease;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Specific placeholder / muted text color adjustments */
+.leave-card input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.leave-card select option {
+    background-color: #121212;
+    color: #F0F2F0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.date-row {
+    grid-column: span 3; /* Spans across all 3 columns of your main grid */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Splits the space evenly (50 / 50) */
+    gap: 16px; /* Matches your form's gap */
+}
+
+.submit-btn.full-width {
+    grid-column: span 3;
+    width: 100%;
+}
+
+.submit-btn.full-width {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #145CE3;
+    color: #F0F2F0;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: "Sora", sans-serif;
+    margin-top: 8px;
+}
+
+.submit-btn.full-width:hover {
+    background-color: #104BC0;
+}
+
+.submit-btn.full-width:active {
+    background-color: #0C3B9A;
+}
+

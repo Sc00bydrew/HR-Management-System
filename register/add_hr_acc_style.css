@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color:#0A0A0A;
+    display: flex;
+    /* min-height: 100vh; */
+}
+
+.sidebar {
+    width: 292px;
+    flex: 0 0 292px;
+    border-right: 1px solid #605E5E;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;            /* Set exact viewport height */
+    position: sticky;         /* Keeps it locked in place */
+    top: 0;                   /* Sticks to the top of the screen */
+    overflow-y: auto;         /* Allows the sidebar to scroll internally if its content is too long */
+    font-family: "Sora", sans-serif;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #605E5E;
+    padding: 4px 8px 22px;
+    margin-bottom: 20px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 23px;
+    letter-spacing: -0.7px;
+    color: #F0F2F0;
+}
+
+.sidebar-toggle,
+.mobile-menu {
+    border: 0;
+    background: transparent;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #605E5E;
+}
+
+.sidebar-toggle i:hover {
+    color: #145CE3;
+}
+
+.nav-group-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #605E5E;
+    margin: 0 8px 12px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #F0F2F0;
+    text-decoration: none;
+    font-weight: 550;
+    padding: 11px 8px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-item i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #145CE3;
+}
+
+.nav-item.active i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item.margin {
+    margin-bottom: 24px;
+}
+
+.nav-item.logout {
+    margin-top: auto;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+    flex: 0 0 80px;
+    padding: 22px 10px;
+}
+
+/* Hide brand name, category titles, and text labels */
+.sidebar.collapsed .brand,
+.sidebar.collapsed .nav-group-title,
+.sidebar.collapsed .nav-item span {
+    display: none;
+}
+
+/* Center icons and adjust layout when collapsed */
+.sidebar.collapsed .brand-row {
+    justify-content: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 12px 0;
+    gap: 0;
+}
+
+.sidebar.collapsed .nav-item.active {
+    margin-bottom: 15px;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 32px;
+}
+
+.signup-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    margin-top: 7rem;
+}
+
+.signup-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.signup-header h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.signup-header p {
+    color: #D9D9D9;
+    font-size: 20px;
+    margin-top: 0rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Form Styles */
+.signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.input-group {
+    position: relative;
+    width: 400px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #121212;
+    border: 1px solid #605E5E;
+    border-radius: 10px;
+    color: #F0F2F0;
+    font-size: 15px;
+    outline: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    transition: border-color 0.2s;
+}
+
+/* Red border styling for error inputs */
+.input-group input.input-error {
+    border-color: #ef4444 !important; /* Vibrant red */
+}
+
+/* Keeps the red border glowing even when focused */
+.input-group input.input-error:focus {
+    border-color: #ef4444 !important;
+}
+
+.input-group input::placeholder {
+    color: #605E5E;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.input-group input:focus {
+    border-color: #145CE3;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #605E5E;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.eye-icon:hover {
+    color: #F0F2F0;
+}
+
+/* Password Input Icon Positioning */
+.input-group.password-group {
+    position: relative;
+}
+
+.input-group.password-group input {
+    padding-right: 45px; /* Adds space so typing doesn't run under the eye icon */
+}
+
+/* Fixes the bright autofill background color */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover, 
+.input-group input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #121212 inset !important; /* Forces your dark background */
+    -webkit-text-fill-color: #F0F2F0 !important;                  /* Keeps your text color clean */
+    border: 1px solid #605E5E !important;                         /* Maintains your input border */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #605E5E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle.active {
+    color: #F0F2F0; /* Brightens the eye icon when password is shown */
+}
+
+/* Sign Up Button */
+.signup-btn {
+    width: 400px;
+    padding: 16px 20px;
+    background-color: #145CE3;
+    color: #F0F2F0;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: "Sora", sans-serif;
+    margin-top: 1rem;
+}
+
+.signup-btn:hover {
+    background-color: #104BC0;
+}
+
+.signup-btn:active {
+    background-color: #0C3B9A !important;
+    transform: scale(0.98);
+}

@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color:#0A0A0A;
+    display: flex;
+    /* min-height: 100vh; */
+}
+
+.sidebar {
+    width: 292px;
+    flex: 0 0 292px;
+    border-right: 1px solid #605E5E;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;            /* Set exact viewport height */
+    position: sticky;         /* Keeps it locked in place */
+    top: 0;                   /* Sticks to the top of the screen */
+    overflow-y: auto;         /* Allows the sidebar to scroll internally if its content is too long */
+    font-family: "Sora", sans-serif;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #605E5E;
+    padding: 4px 8px 22px;
+    margin-bottom: 20px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 23px;
+    letter-spacing: -0.7px;
+    color: #F0F2F0;
+}
+
+.sidebar-toggle,
+.mobile-menu {
+    border: 0;
+    background: transparent;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #605E5E;
+}
+
+.sidebar-toggle i:hover {
+    color: #145CE3;
+}
+
+.nav-group-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #605E5E;
+    margin: 0 8px 12px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #F0F2F0;
+    text-decoration: none;
+    font-weight: 550;
+    padding: 11px 8px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-item i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item:hover {
+    color: #145CE3;
+}
+
+.nav-item.active {
+    color: #F0F2F0;
+}
+
+.nav-item.active:hover {
+    color: #145CE3;
+}
+
+.nav-item.actives {
+    margin-bottom: 25px;
+}
+
+.nav-item.active {
+    margin-bottom: 25px;
+}
+.nav-item.in {
+    color: #145CE3;
+}
+
+.nav-item.active i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item.margin {
+    margin-bottom: 24px;
+}
+
+.nav-item.logout {
+    margin-top: auto;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+    flex: 0 0 80px;
+    padding: 22px 10px;
+}
+
+.sidebar.collapsed .nav-submenu-static {
+    display: none !important;
+}
+
+.sidebar.collapsed .brand,
+.sidebar.collapsed .nav-group-title,
+.sidebar.collapsed .nav-item span {
+    display: none;
+}
+
+.sidebar.collapsed .brand-row {
+    justify-content: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 12px 0;
+    gap: 0;
+}
+
+.sidebar.collapsed .nav-item.active {
+    margin-bottom: 15px;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 32px;
+}
+
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #0A0A0A;
+    height: 78px;
+    border-bottom: 1px solid #605E5E;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    margin: 0 -24px 24px;
+    padding: 0 24px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: auto;
+}
+
+.employees-panel {
+    border: 1px solid #605E5E;
+    border-radius: 20px;
+    padding: 40px 40px;
+    box-sizing: border-box;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    font-family: "Sora", sans-serif;
+}
+
+.profile-avatar,
+.profile-avatar-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #F0F2F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 28px;
+}
+
+.profile-title h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 -2px 0;
+    color: #F0F2F0;
+    letter-spacing: -0.5px;
+}
+
+.profile-title h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    margin: 0 0 0px 0;
+    color: #F0F2F0;
+}
+
+.user-id {
+    font-size: 24px;
+    font-weight: 600;
+    color: #605E5E;
+    margin: 0 0 0px 0;
+}
+
+.edit-profile-btn {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    background-color: #145CE3;
+    color: #F0F2F0;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: "Sora", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.edit-profile-btn:hover {
+    background-color: #104BC0;
+}
+
+.edit-profile-btn:active {
+    background-color: #0C3B9A;
+}
+
+
+/* Section Title Headers */
+.section-title-blue,
+.section-title-red,
+.section-title-green,
+.section-title-orange {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: "Sora", sans-serif;
+}
+
+.section-title-blue {
+    color: #145CE3;
+}
+
+.section-title-red {
+    color: #b0262a;
+}
+
+.section-title-green {
+    color: #54C750;
+}
+
+.section-title-orange {
+    color: #b45309;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 24px;
+    margin-bottom: 12px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-item label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #605E5E;
+    font-family: "Sora", sans-serif;
+}
+
+.info-item .value {
+    font-size: 18px;
+    font-weight: 500;
+    color: #F0F2F0 ;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}

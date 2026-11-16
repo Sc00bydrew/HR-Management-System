@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..800&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color:#0A0A0A;
+    display: flex;
+    /* min-height: 100vh; */
+}
+
+.sidebar {
+    width: 292px;
+    flex: 0 0 292px;
+    border-right: 1px solid #605E5E;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;            /* Set exact viewport height */
+    position: sticky;         /* Keeps it locked in place */
+    top: 0;                   /* Sticks to the top of the screen */
+    overflow-y: auto;         /* Allows the sidebar to scroll internally if its content is too long */
+    font-family: "Sora", sans-serif;
+    transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #605E5E;
+    padding: 4px 8px 22px;
+    margin-bottom: 20px;
+}
+
+.brand {
+    font-weight: 800;
+    font-size: 23px;
+    letter-spacing: -0.7px;
+    color: #F0F2F0;
+}
+
+.sidebar-toggle,
+.mobile-menu {
+    border: 0;
+    background: transparent;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.sidebar-toggle i {
+    font-size: 25px;
+    color: #605E5E;
+}
+
+.sidebar-toggle i:hover {
+    color: #145CE3;
+}
+
+.nav-group-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #605E5E;
+    margin: 0 8px 12px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #F0F2F0;
+    text-decoration: none;
+    font-weight: 550;
+    padding: 11px 8px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-item i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item:hover {
+    color: #145CE3;
+}
+
+.nav-item.active {
+    color: #F0F2F0;
+}
+
+.nav-item.actives {
+    margin-bottom: 25px;
+}
+
+.nav-item.active {
+    margin-bottom: 25px;
+}
+.nav-item.in {
+    color: #145CE3;
+}
+
+.nav-item.active i {
+    font-size: 25px;
+    font-weight: 550;
+}
+
+.nav-item.margin {
+    margin-bottom: 24px;
+}
+
+.nav-item.logout {
+    margin-top: auto;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+    flex: 0 0 80px;
+    padding: 22px 10px;
+}
+
+/* Hide brand name, category titles, and text labels */
+.sidebar.collapsed .brand,
+.sidebar.collapsed .nav-group-title,
+.sidebar.collapsed .nav-item span {
+    display: none;
+}
+
+/* Center icons and adjust layout when collapsed */
+.sidebar.collapsed .brand-row {
+    justify-content: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 12px 0;
+    gap: 0;
+}
+
+.sidebar.collapsed .nav-item.active {
+    margin-bottom: 15px;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 32px;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keeps the topbar above all other page content */
+    background-color: #0A0A0A; /* Change this to match your exact dashboard background color */
+    
+    height: 78px;
+    border-bottom: 1px solid #605E5E;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Keeps your export & profile buttons on the right */
+    margin: 0 -24px 16px;
+    padding: 0 24px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: auto; /* Pushes this element all the way to the right */
+}
+
+/* Base Button Style */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 8px 24px;
+    font-family: "Sora", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.profile:hover {
+    box-shadow: 0 0 0 5px #145CE3; 
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops the image smoothly to fit the box */
+    display: block;
+}
+
+.welcome-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin: 10px 0 24px;
+}
+
+.welcome-row h1 {
+    font-size: 40px;
+    letter-spacing: -1px;
+    margin: 0 0 1px;
+    font-weight: bolder;
+    font-family: "Sora", sans-serif;
+    color: #F0F2F0;
+}
+
+.panel.employees-panel {
+    border: 1px solid #605E5E;
+    border-radius: 20px;
+    padding: 24px 24px;
+    grid-column: 1 / -1; /* Forces the panel to span the full width of the grid */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #F0F2F0;
+    margin-bottom: 24px;
+    font-family: "Sora", sans-serif;
+}
+
+.section-title i {
+    font-size: 40px;
+    font-weight: 550;
+}
+
+/* 2-Column Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 24px;
+}
+
+/* Avatar / File Upload Card Box */
+.upload-card-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #121212;
+    border: 1px solid #605E5E;
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: border-color 0.2s ease;
+}
+
+.upload-card-box:hover {
+    border-color: #145CE3;
+}
+
+/* RemixIcon Upload Icon Styling */
+.upload-icon {
+    font-size: 70px;
+    font-weight: normal;
+    color: #F0F2F0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Upload Typography */
+.upload-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #F0F2F0;
+    margin-bottom: 4px;
+    font-family: "Sora", sans-serif;
+}
+
+.upload-subtext {
+    font-size: 16px;
+    color: #F0F2F0;
+    margin-bottom: 8px;
+    font-family: "Sora", sans-serif;
+}
+
+/* Browse Button */
+.btn-browse {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #145CE3;
+    color: #F0F2F0;
+    font-size: 16px; 
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Sora", sans-serif;
+}
+
+.btn-browse:hover {
+    background-color: #104BC0;
+}
+
+.btn-browse:active {
+    background-color: #0C3B9A;
+}
+
+/* Field Group */
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-full {
+    grid-column: 1 / -1;
+}
+
+/* Labels */
+.field-group .label {
+    font-weight: 500;
+    font-size: 18px;
+    color: #F0F2F0;
+    font-family: "Sora", sans-serif;
+}
+
+
+.field-group input[type="text"],
+.field-group input[type="email"],
+.field-group input[type="number"],
+.field-group input[type="date"],
+.field-group select {
+    background-color: #121212;
+    border: 1px solid #605E5E;
+    border-radius: 12px;
+    padding: 17px 20px;
+    font-size: 16px;
+    color: #F0F2F0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 30px #121212 inset !important;
+    -webkit-box-shadow: 0 0 0 30px #121212 inset !important;
+    -webkit-text-fill-color: #F0F2F0 !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: #605E5E !important;
+    -webkit-text-fill-color: #605E5E !important;
+    opacity: 1;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+    border-color: #145CE3;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.field-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Date input calendar icon styling compatibility */
+.field-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/* Submit Action Button */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #145CE3;
+    color: #F0F2F0;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 28px;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    font-family: "Sora", sans-serif;
+}
+
+.submit-btn:hover {
+    background-color: #104BC0;
+    opacity: 0.95;
+}
+
+.submit-btn:active {
+    background-color: #0C3B9A;
+}
